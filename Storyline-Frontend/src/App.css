@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #0b0a08;
+  --surface: #15130f;
+  --surface-raised: #1c1912;
+  --border: #2c2618;
+  --gold: #c9a227;
+  --crimson: #8c1c1c;
+  --text: #f1ece1;
+  --muted: #948a76;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Work Sans", sans-serif;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100vh;
+}
+
+.sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow-y: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.brand-mark {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: var(--gold);
+}
+
+.brand-name {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.sidebar-section h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.empty {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.script-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.script-list a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 4px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  border: 1px solid transparent;
+  word-break: break-word;
+}
+
+.script-list a:hover {
+  border-color: var(--border);
+  background: var(--surface-raised);
+  color: var(--gold);
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 32px 40px 24px;
+}
+
+.stage-header {
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.stage-header h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 40px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.stage-header p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.chat {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 8px 4px 16px;
+}
+
+.bubble {
+  max-width: 640px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.bubble .label {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.bubble p {
+  margin: 0;
+  line-height: 1.55;
+  font-size: 15px;
+  white-space: pre-wrap;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  border-color: var(--crimson);
+  background: linear-gradient(180deg, rgba(140, 28, 28, 0.16), rgba(140, 28, 28, 0.05));
+}
+
+.bubble.assistant {
+  align-self: flex-start;
+}
+
+.thinking {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.composer {
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+.composer textarea {
+  flex: 1;
+  resize: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.composer textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.composer button {
+  background: var(--gold);
+  color: #1a1508;
+  border: none;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.composer button:disabled {
+  background: var(--surface-raised);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+@media (max-width: 760px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+  }
+
+  .stage {
+    padding: 20px;
+  }
+}

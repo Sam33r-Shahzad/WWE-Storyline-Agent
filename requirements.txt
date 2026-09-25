@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic
+langchain
+langchain-core
+langchain-tavily
+langgraph
+langgraph-checkpoint-sqlite
+groq
+langchain-google-genai
